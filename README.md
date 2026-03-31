@@ -13,9 +13,9 @@ YourSite/
 * You should be able to start hosting everything with `docker compose up`. If in rootless mode (ideal), make sure you [enable lingering for your own user](https://docs.docker.com/engine/security/rootless/tips/).
 * By default, Nginx in the container listens on port 8080. Docker then binds the container port 8080 to the host localhost port 8080. You can configure this in docker compose like so:
 ```
-  # HOST_IP:HOST_PORT:CONTAINER_PORT
-  ports:
-    - 127.0.0.1:8080:8080
+# HOST_IP:HOST_PORT:CONTAINER_PORT
+ports:
+  - 127.0.0.1:8080:8080
 ```
 * ***Warning!!!*** Security header inheritance via `add_header_inherit merge` is dependent on nginx version 1.29 and higher. The settings present here in `nginx-server.conf` when used with other versions may remove your security headers silently!
 * The Nginx config here is just an example. There really isn't one-size-fits-all Nginx config! Make sure to read the comments, look at Nginx documentation, and write one tailored to your specific needs. If using/customizing the one here, pay extra attention to the caching rules.
